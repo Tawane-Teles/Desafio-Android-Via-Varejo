@@ -3,7 +3,7 @@
     package="com.viavarejo.desafio.android.tawane.hq">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
     <application
         android:allowBackup="true"
         android:name=".DesafioAplication"
