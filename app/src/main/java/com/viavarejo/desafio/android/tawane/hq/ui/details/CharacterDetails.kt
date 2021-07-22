@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.viavarejo.desafio.android.tawane.hq.R
@@ -39,6 +40,7 @@ class CharacterDetails : Fragment() {
         initViews(view)
         initViewModel()
         bindStates()
+        setAdapter()
     }
 
     private fun initViews(view: View) {
@@ -77,6 +79,13 @@ class CharacterDetails : Fragment() {
         }
     }
 
+    private fun setAdapter() {
+        val manager = LinearLayoutManager(requireContext())
+        with(recyclerView!!) {
+            layoutManager = manager
+            adapter = adapterHqs
+        }
+    }
     companion object {
         fun newInstant() = CharacterDetails()
     }
