@@ -3,6 +3,7 @@ package com.viavarejo.desafio.android.tawane.hq.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.viavarejo.desafio.android.tawane.hq.di.repositoryModule
 import com.viavarejo.desafio.android.tawane.hq.model.CharacterResponse
 import com.viavarejo.desafio.android.tawane.hq.model.CharacterResults
 import com.viavarejo.desafio.android.tawane.hq.repository.CharacterRepository
@@ -52,9 +53,26 @@ class HomeViewModel(private val characterRepository: CharacterRepository) : View
 
     }
 
+    fun getHqs(id: Int) {
+
+        launch {
+            try {
+                if (characterRepository.findComics(id).isSuccessful){
+                    characterRepository.saveHQ(characterRepository.findComics(id).body()!!)
+                    _state.postValue(ScreenState.NavigateToDetails)
+                }
+
+            }catch (e: Exception){
+                _state.postValue(ScreenState.ApiError(e.message.toString()))
+            }
+
+        }
+
+    }
+
     fun savePosition(marvel: CharacterResults){
          characterRepository.savePositionClick(marvel)
-        _state.postValue(ScreenState.NavigateToDetails)
+         getHqs(marvel.characterId)
     }
 
     sealed class ScreenState {

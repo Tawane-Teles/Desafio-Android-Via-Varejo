@@ -1,7 +1,7 @@
 package com.viavarejo.desafio.android.tawane.hq.ui.details
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.viavarejo.desafio.android.tawane.hq.model.CharacterResults
+import com.viavarejo.desafio.android.tawane.hq.model.*
 import com.viavarejo.desafio.android.tawane.hq.repository.CharacterRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -13,6 +13,7 @@ import org.junit.*
 import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 
@@ -45,7 +46,18 @@ internal class CharacterDetailsViewModelTest {
 
     @Test
     fun getPosition() = TestCoroutineDispatcher().runBlockingTest {
-        val expected = listOf(CharacterDetailsViewModel.ScreenState.GetPosition(CharacterResults(characterId = 11, name = "Hero", description = "Teste", thumbnail = null, resourceURI = "")))
+
+        Mockito.`when`(repository.getPositionClick()).thenReturn(
+            getMockPosition()
+        )
+
+        Mockito.`when`(repository.getDataHQ()).thenReturn(
+            getMockHQS()
+        )
+
+        val expected = listOf(
+            CharacterDetailsViewModel.ScreenState.GetPosition(getMockPosition(), getMockHQS())
+        )
 
         val actual = mutableListOf<CharacterDetailsViewModel.ScreenState>()
 
@@ -61,7 +73,7 @@ internal class CharacterDetailsViewModelTest {
 
     @Test
     fun navigateToHome() = TestCoroutineDispatcher().runBlockingTest {
-        val expected = listOf(CharacterDetailsViewModel.ScreenState.NavigateToHome)
+        val expected = mutableListOf(CharacterDetailsViewModel.ScreenState.NavigateToHome)
 
         val actual = mutableListOf<CharacterDetailsViewModel.ScreenState>()
 
@@ -74,5 +86,35 @@ internal class CharacterDetailsViewModelTest {
 
     }
 
+    fun getMockPosition(): CharacterResults{
+        return   CharacterResults(
+            characterId = 11,
+            name = "Hero",
+            description = "Teste",
+            thumbnail = null,
+            resourceURI = ""
+        )
+    }
+
+    fun getMockHQS(): MarvelComicsResponse {
+        return MarvelComicsResponse(
+            heroData =
+            MarvelComicsData(
+                offset = 1,
+                count = 1,
+                limit = 1,
+                results = listOf(
+                    MarvelComics(
+                        id = 1,
+                        description = "",
+                        price = null,
+                        thumbnail = null,
+                        title = ""
+                    )
+                ),
+                total = 1
+            )
+        )
+    }
 
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.viavarejo.desafio.android.tawane.hq.model.CharacterResults
+import com.viavarejo.desafio.android.tawane.hq.model.MarvelComicsResponse
 import com.viavarejo.desafio.android.tawane.hq.repository.CharacterRepository
 
 class CharacterDetailsViewModel(private val repository: CharacterRepository) : ViewModel() {
@@ -33,9 +34,11 @@ class CharacterDetailsViewModel(private val repository: CharacterRepository) : V
                         description = "Teste",
                         thumbnail = null,
                         resourceURI = ""
-                    )
+                    ), repository.getDataHQ()
             )
         )
+
+
     }
 
     fun navigateToHome() {
@@ -43,7 +46,9 @@ class CharacterDetailsViewModel(private val repository: CharacterRepository) : V
     }
 
     sealed class ScreenState {
-        data class GetPosition(val value: CharacterResults) : ScreenState()
+        data class GetPosition(val value: CharacterResults, val hqs: MarvelComicsResponse?) :
+            ScreenState()
+
         object NavigateToHome : ScreenState()
     }
 
