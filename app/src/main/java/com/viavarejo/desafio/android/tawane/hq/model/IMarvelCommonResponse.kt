@@ -1,4 +1,4 @@
-package com.opah.desafio.tihasgdesafio.model
+package com.viavarejo.desafio.android.tawane.hq.model
 
 interface IMarvelCommonResponse {
     fun isSuccess(): Boolean

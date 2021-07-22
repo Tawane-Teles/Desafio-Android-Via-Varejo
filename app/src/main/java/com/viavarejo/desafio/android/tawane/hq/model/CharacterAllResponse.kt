@@ -1,6 +1,7 @@
-package com.opah.desafio.tihasgdesafio.model
+package com.viavarejo.desafio.android.tawane.hq.model
 
 import com.squareup.moshi.Json
+import com.viavarejo.desafio.android.tawane.hq.model.CharacterResults
 
 data class CharacterAllResponse(
     @Json(name = "offset")

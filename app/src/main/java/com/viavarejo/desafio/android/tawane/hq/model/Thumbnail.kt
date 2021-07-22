@@ -1,4 +1,4 @@
-package com.opah.desafio.tihasgdesafio.model
+package com.viavarejo.desafio.android.tawane.hq.model
 
 import android.os.Parcel
 import android.os.Parcelable

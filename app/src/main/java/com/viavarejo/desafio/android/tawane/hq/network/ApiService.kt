@@ -1,7 +1,7 @@
 package com.viavarejo.desafio.android.tawane.hq.network
 
-import com.opah.desafio.tihasgdesafio.model.CharacterResponse
-import com.opah.desafio.tihasgdesafio.model.MarvelComicsResponse
+import com.viavarejo.desafio.android.tawane.hq.model.CharacterResponse
+import com.viavarejo.desafio.android.tawane.hq.model.MarvelComicsResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET

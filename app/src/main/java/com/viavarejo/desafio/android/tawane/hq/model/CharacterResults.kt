@@ -1,4 +1,4 @@
-package com.opah.desafio.tihasgdesafio.model
+package com.viavarejo.desafio.android.tawane.hq.model
 
 
 import com.google.gson.annotations.SerializedName

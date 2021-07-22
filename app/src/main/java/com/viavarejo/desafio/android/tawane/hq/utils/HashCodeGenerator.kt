@@ -1,4 +1,4 @@
-package com.opah.desafio.tihasgdesafio.utils
+package com.viavarejo.desafio.android.tawane.hq.utils
 
 import java.math.BigInteger
 import java.security.MessageDigest

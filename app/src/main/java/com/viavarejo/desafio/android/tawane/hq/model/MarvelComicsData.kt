@@ -1,7 +1,7 @@
-package com.opah.desafio.felipe.models
+package com.viavarejo.desafio.android.tawane.hq.model
 
 import com.google.gson.annotations.SerializedName
-import com.opah.desafio.tihasgdesafio.model.MarvelComics
+import com.viavarejo.desafio.android.tawane.hq.model.MarvelComics
 
 data class MarvelComicsData(
     @SerializedName("offset") val offset: Int,

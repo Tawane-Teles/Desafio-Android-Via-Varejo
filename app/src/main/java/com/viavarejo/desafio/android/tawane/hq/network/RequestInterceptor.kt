@@ -1,7 +1,7 @@
 package com.viavarejo.desafio.android.tawane.hq.network
 
-import com.opah.desafio.tihasgdesafio.utils.Constants
-import com.opah.desafio.tihasgdesafio.utils.HashCodeGenerator
+import com.viavarejo.desafio.android.tawane.hq.utils.Constants
+import com.viavarejo.desafio.android.tawane.hq.utils.HashCodeGenerator
 import okhttp3.Interceptor
 import okhttp3.Response
 

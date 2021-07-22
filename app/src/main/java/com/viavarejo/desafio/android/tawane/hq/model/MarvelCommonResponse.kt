@@ -1,7 +1,7 @@
-package com.opah.desafio.tihasgdesafio.model
+package com.viavarejo.desafio.android.tawane.hq.model
 
 import com.google.gson.annotations.SerializedName
-import com.opah.desafio.tihasgdesafio.model.IMarvelCommonResponse
+import com.viavarejo.desafio.android.tawane.hq.model.IMarvelCommonResponse
 
 open class MarvelCommonResponse(
     @SerializedName("code") protected var code: Int = 0,
